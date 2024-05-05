@@ -7,7 +7,7 @@ pipeline {
         stage('Build Maven'){
             steps{
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/AneeshMSomayaji/Devopsss']]])
-                sh 'mvn clean install'
+                bat 'mvn clean install'
             }
         }
         stage('Build docker image'){
@@ -20,11 +20,8 @@ pipeline {
         stage('Push image to Hub'){
             steps{
                    bat 'docker login -u javatechie -p Madhu@0708'
-
-}
                    bat 'docker push javatechie/devops-integration'
                 }
-            }
         }
         stage('Deploy to k8s'){
             steps{
