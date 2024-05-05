@@ -19,8 +19,8 @@ pipeline {
         }
         stage('Push image to Hub'){
             steps{
-                   bat 'docker login -u javatechie -p Madhu@0708'
-                   bat 'docker push javatechie/devops-integration'
+                   bat 'docker login -u aneeshmsomayaji -p Madhu@0708'
+                   bat 'docker push aneeshmsomayaji/devops-integration'
                 }
         }
         stage('Deploy to k8s'){
